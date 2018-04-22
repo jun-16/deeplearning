@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div class="mt-5 text-center">
+  <h1 class="display-1">動物画像判定</h1>
+  <p class="lead">"サル", "イノシシ", "カラス"の画像をアップロードし、判定ボタンを押してください</p>
+  <p class="lead">※複数ファイル選択可能、.jpgファイルのみ対応</p>
+  <form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+    <input type="file" name="files[]" multiple>
+    <input type="submit" class="btn btn-lg btn-secondary" value="判定">
+    {% csrf_token %}
+  </form>
+</div>
+{% endblock %}
